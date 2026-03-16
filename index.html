@@ -733,12 +733,12 @@
     .footer-col a:hover { opacity: 1; color: var(--primary); padding-left: 5px; }
     .footer-bottom { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; opacity: 0.5; text-transform: uppercase; letter-spacing: 1.5px; border-top: 1px solid var(--stroke); padding-top: 40px; gap: 18px; flex-wrap: wrap; }
 
-    /* RESPONSIVIDADE */
+    /* RESPONSIVIDADE AJUSTADA */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 60px); padding: calc(clamp(128px, 14vw, 170px) + var(--safe-top)) 0 clamp(56px, 7vw, 90px); }
-      .hero p { margin: 0 0 36px 0; max-width: 90%; }
-      .hero-actions { justify-content: flex-start; }
-      .hero-img { max-width: 720px; transform: none; }
+      .hero p { margin: 0 auto 36px; max-width: 90%; }
+      .hero-actions { justify-content: center; }
+      .hero-img { max-width: 720px; transform: none; margin: 0 auto; }
       .hero-visual { margin-top: 20px; }
       .hero-visual:hover .hero-img { transform: none; }
       .hero-badge { left: -16px; bottom: -16px; }
@@ -767,20 +767,21 @@
       .section-header { margin-bottom: 56px; }
       .section-header h2 { font-size: clamp(32px, 8vw, 40px); }
       
-      .hero { padding: calc(130px + var(--safe-top)) 0 56px; text-align: center; }
+      /* CENTRALIZAÇÃO DA HERO EM MOBILE */
+      .hero { padding: calc(110px + var(--safe-top)) 0 56px; text-align: center; }
       .hero-content {
         margin: 0 auto;
-        max-width: 350px; 
+        max-width: 100%; 
         display: flex;
         flex-direction: column;
-        align-items: flex-start; 
+        align-items: center; /* Centraliza itens do flex */
       }
-      .hero h1 { font-size: clamp(30px, 8.5vw, 36px); line-height: 1.15; margin-bottom: 16px; text-align: left; width: 100%; }
-      .hero p { font-size: 15.5px; line-height: 1.6; margin-bottom: 32px; text-align: left; width: 100%; }
-      .btn { width: 100%; padding: 18px 24px; font-size: 13px; min-height: 52px; text-align: center; }
-      .hero-actions { flex-direction: column; width: 100%; gap: 14px; }
+      .hero h1 { font-size: clamp(28px, 9vw, 42px); line-height: 1.1; margin-bottom: 20px; text-align: center; width: 100%; }
+      .hero p { font-size: 16px; line-height: 1.6; margin-bottom: 32px; text-align: center; width: 100%; max-width: 450px; }
+      .btn { width: 100%; max-width: 320px; padding: 18px 24px; font-size: 13px; min-height: 52px; text-align: center; }
+      .hero-actions { flex-direction: column; width: 100%; gap: 14px; align-items: center; }
       
-      .hero-badge { width: 90px; height: 90px; font-size: 9px; top: -15px; left: -10px; bottom: auto; }
+      .hero-badge { width: 90px; height: 90px; font-size: 9px; top: -15px; left: 0px; bottom: auto; }
       
       .attack-card { padding: 48px 24px; }
       .founders-block { padding: 56px 24px; border-radius: 20px; gap: 40px; }
@@ -793,7 +794,7 @@
       .faq-answer { font-size: 16px; }
       
       .cta-area { padding: 78px 0; }
-      .calendar-container { height: 750px; border-radius: 18px; } /* Altura móvel calibrada */
+      .calendar-container { height: 750px; border-radius: 18px; }
       
       .footer-nav { flex-direction: column; gap: 40px; align-items: center; }
       .footer-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -808,11 +809,15 @@
       .faq-question { font-size: 20px; }
     }
 
+    /* AJUSTES PARA TELAS MUITO PEQUENAS (IPHONE SE / ANDROID COMPACTO) */
     @media (max-width: 380px) {
-      .hero p { font-size: 15px; } 
-      .tag-pill { font-size: 10px; letter-spacing: 2px; padding: 7px 16px; }
-      .chat-trigger { width: 60px; height: 60px; }
-      .hero-badge { top: -10px; left: 0px; }
+      .hero { padding-top: calc(100px + var(--safe-top)); }
+      .hero h1 { font-size: 26px; }
+      .hero p { font-size: 15px; padding: 0 10px; } 
+      .tag-pill { font-size: 9px; letter-spacing: 1.5px; padding: 6px 14px; }
+      .chat-trigger { width: 56px; height: 56px; }
+      .hero-badge { width: 80px; height: 80px; font-size: 8px; top: -10px; }
+      .btn { padding: 16px 20px; font-size: 12px; }
     }
 
     @media (min-width: 1400px) {
